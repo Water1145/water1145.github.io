@@ -27,23 +27,25 @@
 <body>
     <div class="content">
         <h1 style="font-size: 36px;">拿捏了😎👌</h1>
-        <p><a href="http://xn--xp8h91a.ws">😎👌.ws</a></p>
-        <p><a href="2dcode.jpg">wateregg</a></p>
+        <p><a href="http://xn--xp8h91a.ws">前往简介</a></p>
+        <p><a href="https://www.baidu.com">前往简介</a></p>
         <button id="likeButton">给我点赞</button>
         <p id="likeCount">当前0人已点赞</p>
     </div>
 
     <script>
-        const likeButton = document.getElementById('likeButton');
-        const likeCountDisplay = document.getElementById('likeCount');
+        document.addEventListener('DOMContentLoaded', function() {
+            const likeButton = document.getElementById('likeButton');
+            const likeCountDisplay = document.getElementById('likeCount');
 
-        likeButton.addEventListener('click', () => {
-            fetch('/like', { method: 'POST' })
-            .then(response => response.json())
-            .then(data => {
-                likeCountDisplay.textContent = `当前${data.likeCount}人已点赞`;
-            })
-            .catch(error => console.error('Error:', error));
+            likeButton.addEventListener('click', () => {
+                fetch('/like', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    likeCountDisplay.textContent = `当前${data.likeCount}人已点赞`;
+                })
+                .catch(error => console.error('Error:', error));
+            });
         });
     </script>
 </body>
