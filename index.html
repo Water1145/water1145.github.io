@@ -16,13 +16,35 @@
         .content {
             text-align: center;
         }
+
+        #likeButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="content">
         <h1 style="font-size: 36px;">拿捏了😎👌</h1>
-        <p><a href="https://xn--xp8h91a.ws">😎👌.ws</a></p>
-        <p><a href="2dcode.JPG">wateregg</a></p>
+        <p><a href="http://xn--xp8h91a.ws">😎👌.ws</a></p>
+        <p><a href="2dcode.jpg">wateregg</a></p>
+        <button id="likeButton">给我点赞</button>
+        <p id="likeCount">当前0人已点赞</p>
     </div>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const likeCountDisplay = document.getElementById('likeCount');
+
+        likeButton.addEventListener('click', () => {
+            fetch('/like', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                likeCountDisplay.textContent = `当前${data.likeCount}人已点赞`;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
