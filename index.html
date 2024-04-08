@@ -34,20 +34,21 @@
 <div class="container">
     <h1>0721.one</h1>
     <img src="img/ndnn.jpg" alt="Image">
-    <p>我想让你看我(      )</p>
+
     <button onclick="playAudio()">点击此处播放音频</button>
     <audio id="audioPlayer" src="media/0721.MP3"></audio>
-    <!-- 使用id为按钮添加唯一标识符 -->
-    <button id="randomLinkButton">随机跳转到视频</button>
+    <!-- 新增的按钮，用于随机跳转 -->
+    /*<button onclick="randomLink()">随机跳转0721视频</button> */
+        <p>1056197665@qq.com</p> <!-- 添加的文字元素 -->
 </div>
 
 <script>
-    // 定义playAudio和randomLink函数
     function playAudio() {
         var audio = document.getElementById("audioPlayer");
         audio.play();
     }
 
+    // 新增的函数，用于实现随机跳转
     function randomLink() {
         var links = [
             "https://www.bilibili.com/video/BV1Us4y147x3/?spm_id_from=333.337.search-card.all.click",
@@ -64,14 +65,9 @@
             "https://www.bilibili.com/video/BV1Hy421Y7qb/?spm_id_from=333.337.search-card.all.click"
             "https://www.bilibili.com/video/BV156421g7pC/?vd_source=5af93c678b0cf6d2186bb6b7f1125728"
         ];
-        var randomIndex = Math.floor(Math.random() * links.length);
-        window.location.href = links[randomIndex];
+        var randomIndex = Math.floor(Math.random() * links.length); // 生成一个随机索引
+        window.location.href = links[randomIndex]; // 将浏览器的当前位置设置为随机选中的链接
     }
-
-    // 在文档加载完毕后绑定点击事件
-    document.addEventListener('DOMContentLoaded', (event) => {
-        document.getElementById("randomLinkButton").addEventListener("click", randomLink);
-    });
 </script>
 
 </body>
