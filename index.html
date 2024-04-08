@@ -4,22 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0721</title>
+    <style>
+        body {
+            text-align: center; /* 让body内的所有内容居中 */
+            font-family: Arial, sans-serif; /* 设置字体 */
+        }
+        .container {
+            margin: 0 auto; /* 上下边距为0，左右自动调整，以实现居中 */
+            display: flex;
+            flex-direction: column; /* 使容器内的元素垂直排列 */
+            align-items: center; /* 在交叉轴上居中对齐，即水平居中 */
+            justify-content: center; /* 在主轴上居中对齐，即垂直居中 */
+            height: 100vh; /* 容器高度设置为视口的100% */
+        }
+        img {
+            max-width: 100%; /* 确保图片不会超出屏幕宽度 */
+            height: auto; /* 保持图片的原始宽高比 */
+        }
+        button {
+            margin-top: 20px; /* 按钮与上方元素的距离 */
+        }
+        audio {
+            display: none; /* 隐藏audio元素，不在页面中显示控制条 */
+        }
+    </style>
 </head>
 <body>
 
+<div class="container">
     <h1>0721</h1>
     <img src="img/ndnn.jpg" alt="Image">
+    <p>我想让你看我(      )</p> <!-- 添加的文字元素 -->
+    <button onclick="playAudio()">点击此处播放音频</button>
+    <audio id="audioPlayer" src="media/0721.MP3"></audio>
+</div>
 
-    <button onclick="playAudio()">播放音频</button>
-
-    <audio id="audioPlayer" src="media/0721.mp3"></audio>
-
-    <script>
-        function playAudio() {
-            var audio = document.getElementById("audioPlayer");
-            audio.play();
-        }
-    </script>
+<script>
+    function playAudio() {
+        var audio = document.getElementById("audioPlayer");
+        audio.play();
+    }
+</script>
 
 </body>
 </html>
