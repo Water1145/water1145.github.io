@@ -1,52 +1,25 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>😎👌</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        #likeButton {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <title>0721</title>
 </head>
 <body>
-    <div class="content">
-        <h1 style="font-size: 36px;">拿捏了😎👌</h1>
-        <p><a href="http://xn--xp8h91a.ws">前往简介</a></p>
-        <p><a href="https://www.baidu.com">前往简介</a></p>
-        <button id="likeButton">给我点赞</button>
-        <p id="likeCount">当前0人已点赞</p>
-    </div>
+
+    <h1>0721</h1>
+    <img src="img/ndnn.jpg" alt="Image">
+
+    <button onclick="playAudio()">播放音频</button>
+
+    <audio id="audioPlayer" src="media/0721.mp3"></audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const likeButton = document.getElementById('likeButton');
-            const likeCountDisplay = document.getElementById('likeCount');
-
-            likeButton.addEventListener('click', () => {
-                fetch('/like', { method: 'POST' })
-                .then(response => response.json())
-                .then(data => {
-                    likeCountDisplay.textContent = `当前${data.likeCount}人已点赞`;
-                })
-                .catch(error => console.error('Error:', error));
-            });
-        });
+        function playAudio() {
+            var audio = document.getElementById("audioPlayer");
+            audio.play();
+        }
     </script>
+
 </body>
 </html>
